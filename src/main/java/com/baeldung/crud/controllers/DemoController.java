@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.security.Principal;
+
 @Controller
 @RequestMapping(value = "/demo")
 public class DemoController {
@@ -14,8 +16,8 @@ public class DemoController {
     }
 
     @GetMapping("/")
-    String index() {
-        return "homeNotSignedIn";
+    String index(Principal principal) {
+        return principal != null ? "home/homeSignedIn" : "home/homeNotSignedIn";
     }
 
     @GetMapping("/test")

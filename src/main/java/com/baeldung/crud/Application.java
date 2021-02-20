@@ -9,8 +9,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication 
-@EnableAutoConfiguration
-@ComponentScan(basePackages={"com.baeldung.crud"})
+//@EnableAutoConfiguration
+//@ComponentScan(basePackages={"com.baeldung.crud"})
 @EnableJpaRepositories(basePackages="com.baeldung.crud.repositories")
 @EnableTransactionManagement
 @EntityScan(basePackages="com.baeldung.crud.entities")
