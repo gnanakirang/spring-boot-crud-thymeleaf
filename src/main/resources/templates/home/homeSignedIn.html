@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <title th:text="#{view.index.title}">Welcome!</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -17,8 +17,15 @@
         <div th:replace="fragments/alert :: alert (type=${#strings.toLowerCase(message.type)}, message=#{${message.message}(${#authentication.name})})">&nbsp;</div>
     </th:block>
     <p>
-        Welcome to the Spring MVC Quickstart application!
+        Welcome to the Inner Sourcing Platform Quickstart application!
     </p>
+
+    <sec:authorize access="hasRole('ROLE_ADMIN')" var="isAdmin"></sec:authorize>
+    <div sec:authorize="hasRole('ROLE_ADMIN')">
+        This content is only shown to administrators.
+    </div>
+
 </div>
+<div th:insert="~{fragments/footer :: footer}">&copy; 2021 Inner Sourcing Platform</div>
 </body>
 </html>

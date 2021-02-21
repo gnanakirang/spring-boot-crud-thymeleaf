@@ -1,6 +1,6 @@
-package com.baeldung.crud.repositories;
+package com.ggk.crud.repositories;
 
-import com.baeldung.crud.entities.Account;
+import com.ggk.crud.entities.Account;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

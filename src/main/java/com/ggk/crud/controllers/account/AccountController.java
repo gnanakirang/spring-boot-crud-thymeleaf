@@ -1,7 +1,7 @@
-package com.baeldung.crud.controllers.account;
+package com.ggk.crud.controllers.account;
 
-import com.baeldung.crud.entities.Account;
-import com.baeldung.crud.repositories.AccountRepository;
+import com.ggk.crud.entities.Account;
+import com.ggk.crud.repositories.AccountRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.util.Assert;

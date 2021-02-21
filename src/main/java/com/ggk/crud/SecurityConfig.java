@@ -1,6 +1,6 @@
-package com.baeldung.crud;
+package com.ggk.crud;
 
-import com.baeldung.crud.controllers.account.AccountService;
+import com.ggk.crud.controllers.account.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -42,7 +42,7 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .antMatchers("/", "/demo/","/favicon.ico", "/css/**","/js/**","/resources/**", "/signup").permitAll()
+                .antMatchers("/", "/fonts/**","/favicon.ico", "/css/**","/js/**","/resources/**", "/signup").permitAll()
                 .anyRequest().authenticated()
                 .and()
             .formLogin()

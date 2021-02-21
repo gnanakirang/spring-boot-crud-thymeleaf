@@ -1,4 +1,4 @@
-package com.baeldung.crud.util;
+package com.ggk.crud.util;
 
 /**
  * A message to be displayed in web context. Depending on the type, different style will be applied.

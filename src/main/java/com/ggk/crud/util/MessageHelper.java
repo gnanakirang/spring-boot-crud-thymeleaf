@@ -1,6 +1,6 @@
-package com.baeldung.crud.util;
+package com.ggk.crud.util;
 
-import static com.baeldung.crud.util.Message.MESSAGE_ATTRIBUTE;
+import static com.ggk.crud.util.Message.MESSAGE_ATTRIBUTE;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 

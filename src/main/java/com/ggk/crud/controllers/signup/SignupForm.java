@@ -1,25 +1,36 @@
-package com.baeldung.crud.controllers.signup;
+package com.ggk.crud.controllers.signup;
 
 
 
-import com.baeldung.crud.entities.Account;
+import com.ggk.crud.entities.Account;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 public class SignupForm {
 
-	private static final String NOT_BLANK_MESSAGE = "Password can not be empty.";
+
 	private static final String EMAIL_MESSAGE = "Enter valid email.";
 
-    @NotBlank(message = SignupForm.NOT_BLANK_MESSAGE)
+	@NotBlank(message = "Name is required.")
+	private String name;
+
+    @NotBlank(message = "Valid email is required!")
 	@Email(message = SignupForm.EMAIL_MESSAGE)
 	private String email;
 
-    @NotBlank(message = SignupForm.NOT_BLANK_MESSAGE)
+    @NotBlank(message = "Password is required!")
 	private String password;
 
-    public String getEmail() {
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
 		return email;
 	}
 
@@ -36,6 +47,6 @@ public class SignupForm {
 	}
 
 	public Account createAccount() {
-        return new Account(getEmail(), getPassword(), "ROLE_CONTRIBUTOR");
+        return new Account(getName(), getEmail(), getPassword(), "ROLE_CONTRIBUTOR");
 	}
 }

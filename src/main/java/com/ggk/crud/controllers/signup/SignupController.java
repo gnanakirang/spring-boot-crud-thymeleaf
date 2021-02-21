@@ -1,4 +1,4 @@
-package com.baeldung.crud.controllers.signup;
+package com.ggk.crud.controllers.signup;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -6,9 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import com.baeldung.crud.entities.Account;
-import com.baeldung.crud.controllers.account.AccountService;
-import com.baeldung.crud.util.MessageHelper;
+import com.ggk.crud.entities.Account;
+import com.ggk.crud.controllers.account.AccountService;
+import com.ggk.crud.util.MessageHelper;
 
 import javax.validation.Valid;
 
@@ -35,13 +35,13 @@ class SignupController {
 	}
 
 	@PostMapping("signup")
-	public String signup(@Valid @ModelAttribute SignupForm signupForm, Errors errors, RedirectAttributes ra) {
+	public String signup(@Valid @ModelAttribute SignupForm signupForm, Errors errors, Model model) {
 		if (errors.hasErrors()) {
 			return SIGNUP_VIEW_NAME;
 		}
 		Account account = accountService.save(signupForm.createAccount());
 		accountService.signin(account);
-        MessageHelper.addSuccessAttribute(ra, "signup.success");
+        MessageHelper.addSuccessAttribute(model, "Signup success.");
 		return "redirect:/";
 	}
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <title>Welcome to the Inner Sourcing Platform Quickstart application! Get started quickly by signing up!</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -19,7 +19,8 @@
             Welcome to the Inner Sourcing Platform Quickstart application!
             Get started quickly by signing up...
         </div>
-        
+        <div sec:authorize="hasRole('ROLE_ADMIN')">Div tag for Admin access</div>
+
         <p>
             <a id="signup" class="btn btn-success btn-lg">Sign up</a>
         </p>

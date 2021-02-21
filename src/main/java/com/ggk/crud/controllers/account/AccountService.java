@@ -1,7 +1,7 @@
-package com.baeldung.crud.controllers.account;
+package com.ggk.crud.controllers.account;
 
-import com.baeldung.crud.entities.Account;
-import com.baeldung.crud.repositories.AccountRepository;
+import com.ggk.crud.entities.Account;
+import com.ggk.crud.repositories.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
@@ -33,14 +33,14 @@ public class AccountService implements UserDetailsService {
 
 	@PostConstruct
 	protected void initialize() {
-		save(new Account("user", "demo", "ROLE_CONTRIBUTOR"));
-		save(new Account("admin", "admin", "ROLE_ADMIN"));
+		save(new Account("owner", "owner","owner", "ROLE_PROD_OWNER"));
+		save(new Account("user",  "user","user", "ROLE_CONTRIBUTOR"));
+		save(new Account("admin", "admin", "admin", "ROLE_ADMIN"));
 	}
 
 	@Transactional
 	public Account save(Account account) {
 		account.setPassword(passwordEncoder.encode(account.getPassword()));
-		//account.setPassword(account.getPassword());
 		accountRepository.save(account);
 		return account;
 	}

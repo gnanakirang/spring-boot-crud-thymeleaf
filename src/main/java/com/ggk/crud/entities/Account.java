@@ -1,4 +1,4 @@
-package com.baeldung.crud.entities;
+package com.ggk.crud.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -10,8 +10,10 @@ import java.time.Instant;
 public class Account implements java.io.Serializable {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+
+	private String name;
 
 	@Column(unique = true)
 	private String email;
@@ -25,7 +27,8 @@ public class Account implements java.io.Serializable {
 
     protected Account() {}
 	
-	public Account(String email, String password, String role) {
+	public Account(String name, String email, String password, String role) {
+    	this.name = name;
 		this.email = email;
 		this.password = password;
 		this.role = role;
